@@ -152,7 +152,8 @@ function main(workbook: ExcelScript.Workbook) {
       let dict = rowToDict(inputSheet, 1, processedRows);
 
       let modedMap = new Map<string, string>();
-      modedMap.set("External ID", "__autogen__" + Math.floor(Math.random() * 1000000));
+      // time stamp + random int
+      modedMap.set("External ID", "__autogen__" + Date.now() + Math.floor(Math.random() * 1000000));
       modedMap.set("name", dict.get("Name"));
       modedMap.set("list_price", dict.get("Sale Price"));
       modedMap.set("cost", dict.get("Cost"));
